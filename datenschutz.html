@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datenschutzerklärung - Finance Tracker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans antialiased flex flex-col min-h-screen">
+    <nav class="bg-white shadow-sm w-full">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex-shrink-0 flex items-center font-bold text-xl text-emerald-600">
+                    <a href="index.html">Finance Tracker</a>
+                </div>
+                <a href="index.html" class="text-sm font-medium text-gray-600 hover:text-emerald-600">&larr; Zurück zur Startseite</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 w-full">
+        <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
+            <h1 class="text-3xl font-extrabold text-gray-900 mb-8">Datenschutzerklärung</h1>
+            
+            <h2 class="text-2xl font-bold mt-8 mb-4">1. Datenschutz auf einen Blick</h2>
+            <h3 class="text-lg font-semibold mt-4 mb-2">Allgemeine Hinweise</h3>
+            <p class="text-gray-700 leading-relaxed mb-4 text-sm">
+                Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie unsere Website besuchen oder unsere App ("Finance Tracker") nutzen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können.
+            </p>
+            
+            <h3 class="text-lg font-semibold mt-4 mb-2">Verantwortliche Stelle</h3>
+            <p class="text-gray-700 leading-relaxed mb-4 text-sm">
+                Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website und in der App ist:<br><br>
+                Alex Brinckmann<br>
+                Isaac-Fulda-Allee 4<br>
+                55124 Mainz<br>
+                Deutschland<br>
+                E-Mail: brinckmannalex@gmail.com
+            </p>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">2. Datenerfassung auf dieser Website (Landing Page)</h2>
+            <p class="text-gray-700 leading-relaxed mb-4 text-sm">
+                Diese statische Website wird über <strong>GitHub Pages</strong> gehostet. Wenn Sie diese Webseite aufrufen, erfasst der Provider (GitHub Inc.) automatisch Informationen in sogenannten Server-Log-Dateien, die Ihr Browser automatisch übermittelt (IP-Adresse, Browsertyp, Referrer URL, Uhrzeit). Diese Daten werden nicht mit anderen Datenquellen zusammengeführt. Wir selbst verwenden auf dieser statischen Landing Page keine eigenen Tracking-Cookies oder Analyse-Tools.
+            </p>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">3. Datenerfassung in der Finance Tracker App</h2>
+            <p class="text-gray-700 leading-relaxed mb-4 text-sm">
+                Finance Tracker ist ein Portfolio-Softwareprojekt. Wenn Sie die App nutzen und sich registrieren, verarbeiten wir Daten im Rahmen der Bereitstellung des Dienstes:
+            </p>
+            <ul class="list-disc pl-6 text-gray-700 text-sm mb-4 space-y-2">
+                <li><strong>Account-Daten:</strong> E-Mail-Adresse und Passwort. Passwörter werden mittels BCrypt kryptografisch gehasht und niemals im Klartext gespeichert.</li>
+                <li><strong>Finanzdaten:</strong> Eingegebene Einnahmen, Ausgaben und Kategorien. Diese werden in unserer PostgreSQL-Datenbank (gehostet bei Neon) verarbeitet.</li>
+                <li><strong>Authentifizierung:</strong> Für den sicheren Login verwenden wir JSON Web Tokens (JWT) und Redis (Upstash) für das Cache- & Session-Management sowie Rate-Limiting zum Schutz vor Angriffen.</li>
+                <li><strong>Backend:</strong> Die REST-API wird mittels Spring Boot bereitgestellt und auf Render gehostet.</li>
+            </ul>
+            <p class="text-gray-700 leading-relaxed mb-4 text-sm">
+                Ihre Daten werden streng vertraulich behandelt, nicht für Werbezwecke verwendet und nicht an unbeteiligte Dritte verkauft. Die Verarbeitung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung).
+            </p>
+
+            <h2 class="text-2xl font-bold mt-8 mb-4">4. Ihre Rechte</h2>
+            <p class="text-gray-700 leading-relaxed mb-4 text-sm">
+                Sie haben jederzeit das Recht unentgeltlich Auskunft über Herkunft, Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten. Sie haben außerdem ein Recht, die Berichtigung, Sperrung oder Löschung dieser Daten zu verlangen. Hierzu sowie zu weiteren Fragen zum Thema Datenschutz können Sie sich jederzeit unter der oben angegebenen Adresse an uns wenden.
+            </p>
+        </div>
+    </main>
+
+    <footer class="bg-gray-900 pt-8 pb-8 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-400 text-sm">
+            &copy; 2026 Finance Tracker. Alle Rechte vorbehalten.
+        </div>
+    </footer>
+</body>
+</html>
