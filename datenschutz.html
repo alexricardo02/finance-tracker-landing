@@ -1,10 +1,68 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="es" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Datenschutzerklärung - Finance Tracker</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Isolate language visibility */
+        html[lang="es"] .lang-de { display: none !important; }
+        html[lang="de"] .lang-es { display: none !important; }
+
+        /* Toggle Component */
+        .toggle-container {
+            display: inline-flex;
+            align-items: center;
+            cursor: pointer;
+            margin-left: 1rem;
+            font-weight: 700;
+            font-size: 0.875rem;
+            user-select: none;
+        }
+
+        .toggle-wrapper {
+            isolation: isolate;
+            position: relative;
+            height: 28px;
+            width: 56px;
+            border-radius: 14px;
+            overflow: hidden;
+            background: #f1f5f9;
+            margin: 0 10px;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.06);
+            border: 1px solid #e2e8f0;
+        }
+
+        .toggle-input {
+            display: none;
+        }
+
+        .toggle-indicator {
+            height: 100%;
+            width: 200%;
+            background: #10b981;
+            border-radius: 14px;
+            transform: translate3d(-75%, 0, 0);
+            transition: transform 0.4s cubic-bezier(0.85, 0.05, 0.18, 1.35);
+        }
+
+        .toggle-input:checked ~ .toggle-indicator {
+            transform: translate3d(25%, 0, 0);
+        }
+        
+        .lang-label {
+            transition: color 0.3s ease;
+            width: 20px;
+            text-align: center;
+        }
+
+        html[lang="es"] .lang-es-text { color: #0f172a; }
+        html[lang="es"] .lang-de-text { color: #94a3b8; }
+        
+        html[lang="de"] .lang-es-text { color: #94a3b8; }
+        html[lang="de"] .lang-de-text { color: #0f172a; }
+    </style>
 </head>
 <body class="bg-gray-50 text-gray-900 font-sans antialiased flex flex-col min-h-screen">
     <nav class="bg-white shadow-sm w-full">
@@ -13,61 +71,164 @@
                 <div class="flex-shrink-0 flex items-center font-bold text-xl text-emerald-600">
                     <a href="index.html">Finance Tracker</a>
                 </div>
-                <a href="index.html" class="text-sm font-medium text-gray-600 hover:text-emerald-600">&larr; Zurück zur Startseite</a>
+                <div class="flex items-center">
+                    <a href="index.html" class="text-sm font-medium text-gray-600 hover:text-emerald-600 mr-2">
+                        <span class="lang-es">&larr; Volver al inicio</span>
+                        <span class="lang-de">&larr; Zurück zur Startseite</span>
+                    </a>
+                    
+                    <label class="toggle-container">
+                        <span class="lang-label lang-es-text">ES</span>
+                        <div class="toggle-wrapper">
+                            <input class="toggle-input" type="checkbox" id="langToggle" onchange="toggleLang()">
+                            <div class="toggle-indicator"></div>
+                        </div>
+                        <span class="lang-label lang-de-text">DE</span>
+                    </label>
+                </div>
             </div>
         </div>
     </nav>
 
     <main class="flex-grow max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 w-full">
         <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
-            <h1 class="text-3xl font-extrabold text-gray-900 mb-8">Datenschutzerklärung</h1>
+            <h1 class="text-3xl font-extrabold text-gray-900 mb-8">
+                <span class="lang-es">Política de Privacidad</span>
+                <span class="lang-de">Datenschutzerklärung</span>
+            </h1>
             
-            <h2 class="text-2xl font-bold mt-8 mb-4">1. Datenschutz auf einen Blick</h2>
-            <h3 class="text-lg font-semibold mt-4 mb-2">Allgemeine Hinweise</h3>
+            <h2 class="text-2xl font-bold mt-8 mb-4">
+                <span class="lang-es">1. Resumen de privacidad</span>
+                <span class="lang-de">1. Datenschutz auf einen Blick</span>
+            </h2>
+            <h3 class="text-lg font-semibold mt-4 mb-2">
+                <span class="lang-es">Información general</span>
+                <span class="lang-de">Allgemeine Hinweise</span>
+            </h3>
             <p class="text-gray-700 leading-relaxed mb-4 text-sm">
-                Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie unsere Website besuchen oder unsere App ("Finance Tracker") nutzen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können.
+                <span class="lang-es">
+                    Las siguientes notas ofrecen un resumen sencillo de lo que sucede con sus datos personales cuando visita nuestro sitio web o utiliza nuestra aplicación ("Finance Tracker"). Los datos personales son todos los datos con los que usted puede ser identificado personalmente.
+                </span>
+                <span class="lang-de">
+                    Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie unsere Website besuchen oder unsere App ("Finance Tracker") nutzen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können.
+                </span>
             </p>
             
-            <h3 class="text-lg font-semibold mt-4 mb-2">Verantwortliche Stelle</h3>
+            <h3 class="text-lg font-semibold mt-4 mb-2">
+                <span class="lang-es">Organismo responsable</span>
+                <span class="lang-de">Verantwortliche Stelle</span>
+            </h3>
             <p class="text-gray-700 leading-relaxed mb-4 text-sm">
-                Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website und in der App ist:<br><br>
+                <span class="lang-es">El organismo responsable del procesamiento de datos en este sitio web y en la aplicación es:</span>
+                <span class="lang-de">Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website und in der App ist:</span><br><br>
                 Alex Brinckmann<br>
                 Isaac-Fulda-Allee 4<br>
                 55124 Mainz<br>
-                Deutschland<br>
-                E-Mail: brinckmannalex@gmail.com
+                <span class="lang-es">Alemania</span><span class="lang-de">Deutschland</span><br>
+                <span class="lang-es">Correo electrónico:</span><span class="lang-de">E-Mail:</span> brinckmannalex@gmail.com
             </p>
 
-            <h2 class="text-2xl font-bold mt-8 mb-4">2. Datenerfassung auf dieser Website (Landing Page)</h2>
+            <h2 class="text-2xl font-bold mt-8 mb-4">
+                <span class="lang-es">2. Recopilación de datos en este sitio web (Landing Page)</span>
+                <span class="lang-de">2. Datenerfassung auf dieser Website (Landing Page)</span>
+            </h2>
             <p class="text-gray-700 leading-relaxed mb-4 text-sm">
-                Diese statische Website wird über <strong>GitHub Pages</strong> gehostet. Wenn Sie diese Webseite aufrufen, erfasst der Provider (GitHub Inc.) automatisch Informationen in sogenannten Server-Log-Dateien, die Ihr Browser automatisch übermittelt (IP-Adresse, Browsertyp, Referrer URL, Uhrzeit). Diese Daten werden nicht mit anderen Datenquellen zusammengeführt. Wir selbst verwenden auf dieser statischen Landing Page keine eigenen Tracking-Cookies oder Analyse-Tools.
+                <span class="lang-es">
+                    Este sitio web estático está alojado en <strong>GitHub Pages</strong>. Cuando visita este sitio web, el proveedor (GitHub Inc.) recopila automáticamente información en los llamados archivos de registro del servidor, que su navegador transmite (dirección IP, tipo de navegador, URL de referencia, hora). Estos datos no se combinan con otras fuentes. No utilizamos cookies de seguimiento propias ni herramientas de análisis en esta página estática.
+                </span>
+                <span class="lang-de">
+                    Diese statische Website wird über <strong>GitHub Pages</strong> gehostet. Wenn Sie diese Webseite aufrufen, erfasst der Provider (GitHub Inc.) automatisch Informationen in sogenannten Server-Log-Dateien, die Ihr Browser automatisch übermittelt (IP-Adresse, Browsertyp, Referrer URL, Uhrzeit). Diese Daten werden nicht mit anderen Datenquellen zusammengeführt. Wir selbst verwenden auf dieser statischen Landing Page keine eigenen Tracking-Cookies oder Analyse-Tools.
+                </span>
             </p>
 
-            <h2 class="text-2xl font-bold mt-8 mb-4">3. Datenerfassung in der Finance Tracker App</h2>
+            <h2 class="text-2xl font-bold mt-8 mb-4">
+                <span class="lang-es">3. Recopilación de datos en la aplicación Finance Tracker</span>
+                <span class="lang-de">3. Datenerfassung in der Finance Tracker App</span>
+            </h2>
             <p class="text-gray-700 leading-relaxed mb-4 text-sm">
-                Finance Tracker ist ein Portfolio-Softwareprojekt. Wenn Sie die App nutzen und sich registrieren, verarbeiten wir Daten im Rahmen der Bereitstellung des Dienstes:
+                <span class="lang-es">
+                    Finance Tracker es un proyecto de software para el portafolio. Cuando utiliza la aplicación y se registra, procesamos los datos como parte de la prestación del servicio:
+                </span>
+                <span class="lang-de">
+                    Finance Tracker ist ein Portfolio-Softwareprojekt. Wenn Sie die App nutzen und sich registrieren, verarbeiten wir Daten im Rahmen der Bereitstellung des Dienstes:
+                </span>
             </p>
             <ul class="list-disc pl-6 text-gray-700 text-sm mb-4 space-y-2">
-                <li><strong>Account-Daten:</strong> E-Mail-Adresse und Passwort. Passwörter werden mittels BCrypt kryptografisch gehasht und niemals im Klartext gespeichert.</li>
-                <li><strong>Finanzdaten:</strong> Eingegebene Einnahmen, Ausgaben und Kategorien. Diese werden in unserer PostgreSQL-Datenbank (gehostet bei Neon) verarbeitet.</li>
-                <li><strong>Authentifizierung:</strong> Für den sicheren Login verwenden wir JSON Web Tokens (JWT) und Redis (Upstash) für das Cache- & Session-Management sowie Rate-Limiting zum Schutz vor Angriffen.</li>
-                <li><strong>Backend:</strong> Die REST-API wird mittels Spring Boot bereitgestellt und auf Render gehostet.</li>
+                <li>
+                    <span class="lang-es"><strong>Datos de la cuenta:</strong> Dirección de correo electrónico y contraseña. Las contraseñas se encriptan mediante BCrypt y nunca se almacenan en texto plano.</span>
+                    <span class="lang-de"><strong>Account-Daten:</strong> E-Mail-Adresse und Passwort. Passwörter werden mittels BCrypt kryptografisch gehasht und niemals im Klartext gespeichert.</span>
+                </li>
+                <li>
+                    <span class="lang-es"><strong>Datos financieros:</strong> Ingresos, gastos y categorías. Estos se procesan en nuestra base de datos PostgreSQL (alojada en Neon).</span>
+                    <span class="lang-de"><strong>Finanzdaten:</strong> Eingegebene Einnahmen, Ausgaben und Kategorien. Diese werden in unserer PostgreSQL-Datenbank (gehostet bei Neon) verarbeitet.</span>
+                </li>
+                <li>
+                    <span class="lang-es"><strong>Autenticación:</strong> Para un inicio de sesión seguro, utilizamos JSON Web Tokens (JWT) y Redis (Upstash) para caché, sesiones y Rate-Limiting para proteger contra ataques.</span>
+                    <span class="lang-de"><strong>Authentifizierung:</strong> Für den sicheren Login verwenden wir JSON Web Tokens (JWT) und Redis (Upstash) für das Cache- & Session-Management sowie Rate-Limiting zum Schutz vor Angriffen.</span>
+                </li>
+                <li>
+                    <span class="lang-es"><strong>Backend:</strong> La API REST se proporciona utilizando Spring Boot y está alojada en Render.</span>
+                    <span class="lang-de"><strong>Backend:</strong> Die REST-API wird mittels Spring Boot bereitgestellt und auf Render gehostet.</span>
+                </li>
             </ul>
             <p class="text-gray-700 leading-relaxed mb-4 text-sm">
-                Ihre Daten werden streng vertraulich behandelt, nicht für Werbezwecke verwendet und nicht an unbeteiligte Dritte verkauft. Die Verarbeitung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung).
+                <span class="lang-es">
+                    Sus datos se tratarán de forma estrictamente confidencial, no se utilizarán con fines publicitarios y no se venderán a terceros. El procesamiento se basa en el Art. 6 Párrafo 1 letra b del RGPD (Cumplimiento del contrato).
+                </span>
+                <span class="lang-de">
+                    Ihre Daten werden streng vertraulich behandelt, nicht für Werbezwecke verwendet und nicht an unbeteiligte Dritte verkauft. Die Verarbeitung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung).
+                </span>
             </p>
 
-            <h2 class="text-2xl font-bold mt-8 mb-4">4. Ihre Rechte</h2>
+            <h2 class="text-2xl font-bold mt-8 mb-4">
+                <span class="lang-es">4. Sus derechos</span>
+                <span class="lang-de">4. Ihre Rechte</span>
+            </h2>
             <p class="text-gray-700 leading-relaxed mb-4 text-sm">
-                Sie haben jederzeit das Recht unentgeltlich Auskunft über Herkunft, Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten. Sie haben außerdem ein Recht, die Berichtigung, Sperrung oder Löschung dieser Daten zu verlangen. Hierzu sowie zu weiteren Fragen zum Thema Datenschutz können Sie sich jederzeit unter der oben angegebenen Adresse an uns wenden.
+                <span class="lang-es">
+                    Tiene derecho a recibir información gratuita sobre el origen, el destinatario y el propósito de sus datos personales almacenados en cualquier momento. También tiene derecho a solicitar la corrección, el bloqueo o la eliminación de estos datos. Puede ponerse en contacto con nosotros en la dirección indicada para esto y otras preguntas sobre protección de datos.
+                </span>
+                <span class="lang-de">
+                    Sie haben jederzeit das Recht unentgeltlich Auskunft über Herkunft, Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten. Sie haben außerdem ein Recht, die Berichtigung, Sperrung oder Löschung dieser Daten zu verlangen. Hierzu sowie zu weiteren Fragen zum Thema Datenschutz können Sie sich jederzeit unter der oben angegebenen Adresse an uns wenden.
+                </span>
             </p>
         </div>
     </main>
 
     <footer class="bg-gray-900 pt-8 pb-8 mt-auto">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-400 text-sm">
-            &copy; 2026 Finance Tracker. Alle Rechte vorbehalten.
+            &copy; 2026 Finance Tracker. 
+            <span class="lang-es">Todos los derechos reservados.</span>
+            <span class="lang-de">Alle Rechte vorbehalten.</span>
         </div>
     </footer>
+
+    <script>
+        // Sync language toggle with localStorage ensuring state persists across pages
+        function toggleLang() {
+            const htmlTag = document.documentElement;
+            const toggleInput = document.getElementById('langToggle');
+            
+            if (toggleInput.checked) {
+                htmlTag.setAttribute('lang', 'de');
+                localStorage.setItem('preferredLang', 'de');
+            } else {
+                htmlTag.setAttribute('lang', 'es');
+                localStorage.setItem('preferredLang', 'es');
+            }
+        }
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('preferredLang');
+            const toggleInput = document.getElementById('langToggle');
+            
+            if (savedLang) {
+                document.documentElement.setAttribute('lang', savedLang);
+                if (savedLang === 'de') {
+                    toggleInput.checked = true;
+                }
+            }
+        });
+    </script>
 </body>
 </html>

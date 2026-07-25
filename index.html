@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,8 +8,13 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         /* Language Toggle Logic */
-        html[lang="es"] .lang-de { display: none !important; }
-        html[lang="de"] .lang-es { display: none !important; }
+        html[lang="es"] .lang-de {
+            display: none !important;
+        }
+
+        html[lang="de"] .lang-es {
+            display: none !important;
+        }
 
         /* Toggle Component Styles */
         .toggle-container {
@@ -30,7 +36,7 @@
             overflow: hidden;
             background: #f1f5f9;
             margin: 0 10px;
-            box-shadow: inset 0 2px 4px rgba(0,0,0,0.06);
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.06);
             border: 1px solid #e2e8f0;
         }
 
@@ -41,28 +47,39 @@
         .toggle-indicator {
             height: 100%;
             width: 200%;
-            background: #10b981; /* Emerald-500 matching your theme */
+            background: #10b981;
+            /* Emerald-500 matching your theme */
             border-radius: 14px;
             transform: translate3d(-75%, 0, 0);
             transition: transform 0.4s cubic-bezier(0.85, 0.05, 0.18, 1.35);
         }
 
         /* State management */
-        .toggle-input:checked ~ .toggle-indicator {
+        .toggle-input:checked~.toggle-indicator {
             transform: translate3d(25%, 0, 0);
         }
-        
+
         .lang-label {
             transition: color 0.3s ease;
             width: 20px;
             text-align: center;
         }
 
-        html[lang="es"] .lang-es-text { color: #0f172a; }
-        html[lang="es"] .lang-de-text { color: #94a3b8; }
-        
-        html[lang="de"] .lang-es-text { color: #94a3b8; }
-        html[lang="de"] .lang-de-text { color: #0f172a; }
+        html[lang="es"] .lang-es-text {
+            color: #0f172a;
+        }
+
+        html[lang="es"] .lang-de-text {
+            color: #94a3b8;
+        }
+
+        html[lang="de"] .lang-es-text {
+            color: #94a3b8;
+        }
+
+        html[lang="de"] .lang-de-text {
+            color: #0f172a;
+        }
 
         /* 
          * Perspectiva en el contenedor padre para aislar el contexto de apilamiento 
@@ -76,7 +93,7 @@
             width: 100%;
             height: 540px;
         }
-        
+
         .phone-card {
             width: 270px;
             height: 540px;
@@ -112,7 +129,7 @@
             transform-style: preserve-3d;
         }
 
-        .phone-wrapper:hover .phone-screen > * {
+        .phone-wrapper:hover .phone-screen>* {
             transform: translateZ(30px);
             transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
         }
@@ -136,44 +153,155 @@
         }
 
         .phone-wrapper:hover .phone-notch {
-             transform: translateX(-50%) translateZ(30px) !important;
+            transform: translateX(-50%) translateZ(30px) !important;
         }
-        
-        .phone-speaker { width: 40px; height: 4px; background: #27272a; border-radius: 2px; }
-        .phone-camera { width: 8px; height: 8px; background: #18181b; border-radius: 50%; box-shadow: inset 0 0 2px rgba(255,255,255,0.2); }
-        
-        .phone-btn { position: absolute; background: #2a2a2d; width: 3px; border-radius: 2px; }
-        .btn-mute { height: 20px; top: 15%; left: -3px; }
-        .btn-vol-up { height: 40px; top: 22%; left: -3px; }
-        .btn-vol-down { height: 40px; top: 32%; left: -3px; }
-        .btn-power { height: 50px; top: 25%; right: -3px; }
+
+        .phone-speaker {
+            width: 40px;
+            height: 4px;
+            background: #27272a;
+            border-radius: 2px;
+        }
+
+        .phone-camera {
+            width: 8px;
+            height: 8px;
+            background: #18181b;
+            border-radius: 50%;
+            box-shadow: inset 0 0 2px rgba(255, 255, 255, 0.2);
+        }
+
+        .phone-btn {
+            position: absolute;
+            background: #2a2a2d;
+            width: 3px;
+            border-radius: 2px;
+        }
+
+        .btn-mute {
+            height: 20px;
+            top: 15%;
+            left: -3px;
+        }
+
+        .btn-vol-up {
+            height: 40px;
+            top: 22%;
+            left: -3px;
+        }
+
+        .btn-vol-down {
+            height: 40px;
+            top: 32%;
+            left: -3px;
+        }
+
+        .btn-power {
+            height: 50px;
+            top: 25%;
+            right: -3px;
+        }
 
         /* Widget KPI */
         .widget-kpi {
             background: #ffffff;
-            padding: 16px;
-            border-radius: 24px;
+            padding: 20px;
+            border-radius: 20px;
+            border: 1px solid #f1f5f9;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
             animation: cardFadeUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
         }
-        .kpi-header { display: flex; align-items: center; }
+
+        .kpi-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 14px;
+        }
+
         .kpi-icon {
             padding: 8px;
-            background: linear-gradient(135deg, #10b981, #059669);
-            border-radius: 50%;
-            animation: pulse 2.4s ease-in-out infinite;
+            background: #ecfdf5;
+            /* emerald-50 */
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
         }
-        .kpi-icon svg { width: 14px; height: 14px; color: #fff; }
-        .kpi-title { margin-left: 10px; color: #1e293b; font-size: 15px; font-weight: 700; }
-        .kpi-percent { margin-left: auto; color: #10b981; font-size: 12px; font-weight: 700; display: flex; align-items: center;}
-        .kpi-percent svg { width: 12px; height: 12px; margin-right: 2px; }
-        .kpi-value { margin: 12px 0; font-size: 28px; font-weight: 800; color: #0f172a; opacity: 0; animation: fadeIn 0.8s ease forwards 0.3s; }
-        .kpi-bar-bg { width: 100%; height: 6px; background: #f1f5f9; border-radius: 4px; overflow: hidden; position: relative; }
+
+        .kpi-icon svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .kpi-icon svg path {
+            fill: none;
+            stroke: #059669;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .kpi-title {
+            color: #94a3b8;
+            /* slate-400 */
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .kpi-percent {
+            display: inline-flex;
+            align-items: center;
+            gap: 3px;
+            padding: 3px 9px;
+            background: #ecfdf5;
+            color: #059669;
+            font-size: 11px;
+            font-weight: 700;
+            border-radius: 999px;
+        }
+
+        .kpi-percent svg {
+            width: 10px;
+            height: 10px;
+        }
+
+        .kpi-value {
+            font-size: 30px;
+            font-weight: 800;
+            color: #059669;
+            /* emerald-600 */
+            letter-spacing: -0.02em;
+            margin-bottom: 8px;
+            opacity: 0;
+            animation: fadeIn 0.8s ease forwards 0.3s;
+        }
+
+        .kpi-bar-bg {
+            width: 100%;
+            height: 6px;
+            background: #f1f5f9;
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+        }
+
         .kpi-bar-fill {
-            position: absolute; top: 0; left: 0; height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
             background: linear-gradient(90deg, #34d399, #10b981);
-            width: 0%; border-radius: 4px;
+            width: 0%;
+            border-radius: 4px;
             animation: fillBar 1.6s ease forwards 0.5s;
+        }
+
+        .kpi-percent svg path {
+            fill: #059669;
         }
 
         /* Widget Chart */
@@ -187,22 +315,94 @@
             animation: cardFadeUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards 0.2s;
             opacity: 0;
         }
-        .chart-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }
-        .chart-title { color: #94a3b8; font-size: 13px; display: block; }
-        .chart-number { color: #f8fafc; font-size: 24px; font-weight: 700; display: block; margin-top: 4px; }
-        .chart-icon svg { width: 20px; fill: #ef4444; }
-        .chart-body { width: 100%; display: flex; justify-content: center; }
-        .chart-body svg { width: 100%; height: auto; }
 
-        @keyframes cardFadeUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes fillBar { from { width: 0%; } to { width: 78%; } }
-        @keyframes pulse { 
-            0%, 100% { transform: scale(1); box-shadow: 0 2px 5px rgba(16,185,129,0.3); } 
-            50% { transform: scale(1.08); box-shadow: 0 4px 12px rgba(16,185,129,0.5); } 
+        .chart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+
+        .chart-title {
+            color: #94a3b8;
+            font-size: 13px;
+            display: block;
+        }
+
+        .chart-number {
+            color: #f8fafc;
+            font-size: 24px;
+            font-weight: 700;
+            display: block;
+            margin-top: 4px;
+        }
+
+        .chart-icon svg {
+            width: 20px;
+            fill: #ef4444;
+        }
+
+        .chart-body {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .chart-body svg {
+            width: 100%;
+            height: auto;
+        }
+
+        @keyframes cardFadeUp {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(6px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fillBar {
+            from {
+                width: 0%;
+            }
+
+            to {
+                width: 78%;
+            }
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+                box-shadow: 0 2px 5px rgba(16, 185, 129, 0.3);
+            }
+
+            50% {
+                transform: scale(1.08);
+                box-shadow: 0 4px 12px rgba(16, 185, 129, 0.5);
+            }
         }
     </style>
 </head>
+
 <body class="bg-gray-50 text-gray-900 font-sans antialiased">
 
     <nav class="bg-white shadow-sm fixed w-full z-50 top-0">
@@ -212,15 +412,17 @@
                     Finance Tracker
                 </div>
                 <div class="flex items-center">
-                    <a href="#features" class="text-gray-600 hover:text-emerald-600 px-3 py-2 rounded-md text-sm font-medium">
+                    <a href="#features"
+                        class="text-gray-600 hover:text-emerald-600 px-3 py-2 rounded-md text-sm font-medium">
                         <span class="lang-es">Características</span>
                         <span class="lang-de">Funktionen</span>
                     </a>
-                    <a href="#download" class="bg-emerald-500 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-emerald-600 transition ml-2">
+                    <a href="#download"
+                        class="bg-emerald-500 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-emerald-600 transition ml-2">
                         <span class="lang-es">Descargar APK</span>
                         <span class="lang-de">APK Herunterladen</span>
                     </a>
-                    
+
                     <!-- Language Toggle -->
                     <!-- Modern Language Toggle -->
                     <label class="toggle-container">
@@ -238,7 +440,7 @@
 
     <section class="pt-32 pb-20 bg-gradient-to-b from-gray-50 to-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center">
-            
+
             <div class="md:w-1/2 mb-16 md:mb-0 md:pr-10">
                 <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
                     <span class="block lang-es">Controla tus finanzas</span>
@@ -246,22 +448,27 @@
                     <span class="block text-emerald-500 lang-es">como un profesional</span>
                     <span class="block text-emerald-500 lang-de">wie ein Profi</span>
                 </h1>
-                <p class="mt-3 max-w-md mx-auto text-base text-gray-500 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl lang-es">
-                    Una arquitectura full-stack robusta en tu bolsillo. Gestiona ingresos, gastos, estadísticas en tiempo real y categorización avanzada.
+                <p
+                    class="mt-3 max-w-md mx-auto text-base text-gray-500 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl lang-es">
+                    Una arquitectura full-stack robusta en tu bolsillo. Gestiona ingresos, gastos, estadísticas en
+                    tiempo real y categorización avanzada.
                 </p>
-                <p class="mt-3 max-w-md mx-auto text-base text-gray-500 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl lang-de">
-                    Eine robuste Full-Stack-Architektur in deiner Tasche. Verwalte Einnahmen, Ausgaben, Echtzeit-Statistiken und erweiterte Kategorisierung.
+                <p
+                    class="mt-3 max-w-md mx-auto text-base text-gray-500 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl lang-de">
+                    Eine robuste Full-Stack-Architektur in deiner Tasche. Verwalte Einnahmen, Ausgaben,
+                    Echtzeit-Statistiken und erweiterte Kategorisierung.
                 </p>
                 <div class="mt-8 sm:flex sm:justify-start">
                     <div class="rounded-md shadow">
-                        <a href="#download" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-emerald-500 hover:bg-emerald-600 md:py-4 md:text-lg">
+                        <a href="#download"
+                            class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-emerald-500 hover:bg-emerald-600 md:py-4 md:text-lg">
                             <span class="lang-es">Obtener APK Gratis</span>
                             <span class="lang-de">Kostenlose APK holen</span>
                         </a>
                     </div>
                 </div>
             </div>
-            
+
             <!-- 3D Phone Mockup Refactorizado -->
             <div class="md:w-1/2 phone-wrapper">
                 <div class="phone-card">
@@ -269,7 +476,7 @@
                     <div class="btn-vol-up phone-btn"></div>
                     <div class="btn-vol-down phone-btn"></div>
                     <div class="btn-power phone-btn"></div>
-                    
+
                     <div class="phone-screen">
                         <div class="phone-notch">
                             <div class="phone-speaker"></div>
@@ -278,26 +485,37 @@
 
                         <!-- Main Balance -->
                         <div class="mt-2 px-1 text-center">
-                            <p class="text-xs text-gray-500 font-semibold uppercase tracking-wide lang-es">Balance Total</p>
-                            <p class="text-xs text-gray-500 font-semibold uppercase tracking-wide lang-de">Gesamtsaldo</p>
+                            <p class="text-xs text-gray-500 font-semibold uppercase tracking-wide lang-es">Balance Total
+                            </p>
+                            <p class="text-xs text-gray-500 font-semibold uppercase tracking-wide lang-de">Gesamtsaldo
+                            </p>
                             <p class="text-3xl text-slate-800 font-extrabold mt-1">€ 4,250.00</p>
                         </div>
 
                         <!-- KPI Widget (Ingresos) -->
+                        <!-- KPI Widget (Ingresos) -->
                         <div class="widget-kpi">
                             <div class="kpi-header">
                                 <div class="kpi-icon">
-                                    <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1362 1185q0 153-99.5 263.5t-258.5 136.5v175q0 14-9 23t-23 9h-135q-13 0-22.5-9.5t-9.5-22.5v-175q-66-9-127.5-31t-101.5-44.5-74-48-46.5-37.5-17.5-18q-17-21-2-41l103-135q7-10 23-12 15-2 24 9l2 2q113 99 243 125 37 8 74 8 81 0 142.5-43t61.5-122q0-28-15-53t-33.5-42-58.5-37.5-66-32-80-32.5q-39-16-61.5-25t-61.5-26.5-62.5-31-56.5-35.5-53.5-42.5-43.5-49-35.5-58-21-66.5-8.5-78q0-138 98-242t255-134v-180q0-13 9.5-22.5t22.5-9.5h135q14 0 23 9t9 23v176q57 6 110.5 23t87 33.5 63.5 37.5 39 29 15 14q17 18 5 38l-81 146q-8 15-23 16-14 3-27-7-3-3-14.5-12t-39-26.5-58.5-32-74.5-26-85.5-11.5q-95 0-155 43t-60 111q0 26 8.5 48t29.5 41.5 39.5 33 56 31 60.5 27 70 27.5q53 20 81 31.5t76 35 75.5 42.5 62 50 53 63.5 31.5 76.5 13 94z"></path></svg>
+                                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <path d="m16 12-4-4-4 4"></path>
+                                        <path d="M12 16V8"></path>
+                                    </svg>
                                 </div>
                                 <p class="kpi-title lang-es">Ingresos</p>
                                 <p class="kpi-title lang-de">Einnahmen</p>
-                                <p class="kpi-percent">
-                                    <svg viewBox="0 0 1792 1792"><path d="M1408 1216q0 26-19 45t-45 19h-896q-26 0-45-19t-19-45 19-45l448-448q19-19 45-19t45 19l448 448q19 19 19 45z"></path></svg>
-                                    24%
-                                </p>
                             </div>
-                            <p class="kpi-value">+ € 1,250</p>
-                            <div class="kpi-bar-bg"><div class="kpi-bar-fill"></div></div>
+                            <p class="kpi-value">€ 1,250.00</p>
+                            <span class="kpi-percent">
+                                <svg viewBox="0 0 1792 1792">
+                                    <path
+                                        d="M1408 1216q0 26-19 45t-45 19h-896q-26 0-45-19t-19-45 19-45l448-448q19-19 45-19t45 19l448 448q19 19 19 45z">
+                                    </path>
+                                </svg>
+                                +24% <span class="lang-es" style="margin-left:2px;">vs. mes anterior</span><span
+                                    class="lang-de" style="margin-left:2px;">vs. Vormonat</span>
+                            </span>
                         </div>
 
                         <!-- Chart Widget (Gastos) -->
@@ -309,13 +527,21 @@
                                     <span class="chart-number">- € 340.50</span>
                                 </div>
                                 <span class="chart-icon">
-                                    <svg viewBox="-1.35 0 1504.4 1504.4"><path class="st1" d="M378.3 667.5h165.1c13 0 23.6 10.5 23.6 23.6v379.1c0 13-10.5 23.6-23.6 23.6H378.3c-13 0-23.6-10.5-23.6-23.6V691c.1-13 10.6-23.5 23.6-23.5zM624.7 1004.7V733.1c.1-66.9 18.8-132.4 54.1-189.2 21.5-34.4 69.7-89.5 96.7-118 6-6.4 27.8-25.2 27.8-35.5 0-13.2 1.5-34.5 2-74.2.3-25.2 20.8-45.9 46-45.7h1.1c44.1.8 58.2 41.6 58.2 41.6s37.7 74.4 2.5 165.4c-29.7 76.9-35.8 83.1-35.8 83.1s-9.6 13.9 20.8 13.3c0 0 185.6-.8 192-.8 13.7 0 57.4 12.5 54.9 68.2-1.8 41.2-27.4 55.6-40.5 60.3-1.7.6-2.6 2.5-1.9 4.2.3.7.8 1.3 1.5 1.7 13.4 7.8 40.8 27.5 40.2 57.7-.8 36.6-15.5 50.1-46.1 58.5-1.7.4-2.8 2.2-2.3 3.9.2.9.8 1.6 1.5 2 11.6 6.6 31.5 22.7 30.3 55.3-1.2 33.2-25.2 44.9-38.3 48.9-1.7.5-2.7 2.3-2.2 4 .2.7.7 1.4 1.3 1.8 8.3 5.7 20.6 18.6 20 45.1-.3 14-5 24.2-10.9 31.5-9.3 11.5-23.9 17.5-38.7 17.6l-411.8.8c-.1-.1-22.4 0-22.4-29.9z"></path></svg>
+                                    <svg viewBox="-1.35 0 1504.4 1504.4">
+                                        <path class="st1"
+                                            d="M378.3 667.5h165.1c13 0 23.6 10.5 23.6 23.6v379.1c0 13-10.5 23.6-23.6 23.6H378.3c-13 0-23.6-10.5-23.6-23.6V691c.1-13 10.6-23.5 23.6-23.5zM624.7 1004.7V733.1c.1-66.9 18.8-132.4 54.1-189.2 21.5-34.4 69.7-89.5 96.7-118 6-6.4 27.8-25.2 27.8-35.5 0-13.2 1.5-34.5 2-74.2.3-25.2 20.8-45.9 46-45.7h1.1c44.1.8 58.2 41.6 58.2 41.6s37.7 74.4 2.5 165.4c-29.7 76.9-35.8 83.1-35.8 83.1s-9.6 13.9 20.8 13.3c0 0 185.6-.8 192-.8 13.7 0 57.4 12.5 54.9 68.2-1.8 41.2-27.4 55.6-40.5 60.3-1.7.6-2.6 2.5-1.9 4.2.3.7.8 1.3 1.5 1.7 13.4 7.8 40.8 27.5 40.2 57.7-.8 36.6-15.5 50.1-46.1 58.5-1.7.4-2.8 2.2-2.3 3.9.2.9.8 1.6 1.5 2 11.6 6.6 31.5 22.7 30.3 55.3-1.2 33.2-25.2 44.9-38.3 48.9-1.7.5-2.7 2.3-2.2 4 .2.7.7 1.4 1.3 1.8 8.3 5.7 20.6 18.6 20 45.1-.3 14-5 24.2-10.9 31.5-9.3 11.5-23.9 17.5-38.7 17.6l-411.8.8c-.1-.1-22.4 0-22.4-29.9z">
+                                        </path>
+                                    </svg>
                                 </span>
                             </div>
                             <div class="chart-body">
                                 <svg viewBox="0 0 370 200">
-                                    <path fill="rgba(239, 68, 68, 0.2)" d="M 26 119 C 26 119 57 141 79 141 C 100 141 110 108 131 108 C 152 108 163 119 184 119 C 205 119 215 15 237 15 C 258 15 289 92 289 92 L 289 175 L 26 175 Z"></path>
-                                    <path fill="none" stroke="#ef4444" stroke-width="3" stroke-linejoin="round" d="M 26 119 C 26 119 57 141 79 141 C 100 141 110 108 131 108 C 152 108 163 119 184 119 C 205 119 215 15 237 15 C 258 15 289 92 289 92"></path>
+                                    <path fill="rgba(239, 68, 68, 0.2)"
+                                        d="M 26 119 C 26 119 57 141 79 141 C 100 141 110 108 131 108 C 152 108 163 119 184 119 C 205 119 215 15 237 15 C 258 15 289 92 289 92 L 289 175 L 26 175 Z">
+                                    </path>
+                                    <path fill="none" stroke="#ef4444" stroke-width="3" stroke-linejoin="round"
+                                        d="M 26 119 C 26 119 57 141 79 141 C 100 141 110 108 131 108 C 152 108 163 119 184 119 C 205 119 215 15 237 15 C 258 15 289 92 289 92">
+                                    </path>
                                     <circle cx="79" cy="141" r="5" fill="#ef4444"></circle>
                                     <circle cx="131" cy="108" r="5" fill="#ef4444"></circle>
                                     <circle cx="184" cy="119" r="5" fill="#ef4444"></circle>
@@ -346,42 +572,63 @@
             <div class="mt-16">
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <div class="p-6 bg-gray-50 rounded-xl shadow-sm border border-gray-100">
-                        <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-lg flex items-center justify-center mb-4">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                        <div
+                            class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z">
+                                </path>
+                            </svg>
                         </div>
                         <h3 class="text-lg font-medium text-gray-900">
                             <span class="lang-es">Estadísticas en Vivo</span>
                             <span class="lang-de">Live-Statistiken</span>
                         </h3>
                         <p class="mt-2 text-base text-gray-500">
-                            <span class="lang-es">Visualiza tus balances y flujo de caja mensuales generados con agregaciones rápidas en PostgreSQL.</span>
-                            <span class="lang-de">Visualisiere deine monatlichen Bilanzen und Cashflows durch schnelle Aggregationen in PostgreSQL.</span>
+                            <span class="lang-es">Visualiza tus balances y flujo de caja mensuales generados con
+                                agregaciones rápidas en PostgreSQL.</span>
+                            <span class="lang-de">Visualisiere deine monatlichen Bilanzen und Cashflows durch schnelle
+                                Aggregationen in PostgreSQL.</span>
                         </p>
                     </div>
                     <div class="p-6 bg-gray-50 rounded-xl shadow-sm border border-gray-100">
-                        <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-lg flex items-center justify-center mb-4">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                        <div
+                            class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z">
+                                </path>
+                            </svg>
                         </div>
                         <h3 class="text-lg font-medium text-gray-900">
                             <span class="lang-es">Seguridad Spring & Redis</span>
                             <span class="lang-de">Spring & Redis Sicherheit</span>
                         </h3>
                         <p class="mt-2 text-base text-gray-500">
-                            <span class="lang-es">Autenticación JWT, sesiones aisladas en Upstash Redis y protección per-user para un rendimiento óptimo.</span>
-                            <span class="lang-de">JWT-Authentifizierung, isolierte Sitzungen in Upstash Redis und Per-User-Schutz für optimale Leistung.</span>
+                            <span class="lang-es">Autenticación JWT, sesiones aisladas en Upstash Redis y protección
+                                per-user para un rendimiento óptimo.</span>
+                            <span class="lang-de">JWT-Authentifizierung, isolierte Sitzungen in Upstash Redis und
+                                Per-User-Schutz für optimale Leistung.</span>
                         </p>
                     </div>
                     <div class="p-6 bg-gray-50 rounded-xl shadow-sm border border-gray-100">
-                        <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-lg flex items-center justify-center mb-4">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path></svg>
+                        <div
+                            class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4">
+                                </path>
+                            </svg>
                         </div>
                         <h3 class="text-lg font-medium text-gray-900">
                             <span class="lang-es">Gestión Avanzada</span>
                             <span class="lang-de">Erweitertes Management</span>
                         </h3>
                         <p class="mt-2 text-base text-gray-500">
-                            <span class="lang-es">Categorías detalladas, validación de datos estricta (DTO) y despliegue continuo mediante GitHub Actions.</span>
-                            <span class="lang-de">Detaillierte Kategorien, strikte Datenvalidierung (DTO) und Continuous Deployment über GitHub Actions.</span>
+                            <span class="lang-es">Categorías detalladas, validación de datos estricta (DTO) y despliegue
+                                continuo mediante GitHub Actions.</span>
+                            <span class="lang-de">Detaillierte Kategorien, strikte Datenvalidierung (DTO) und Continuous
+                                Deployment über GitHub Actions.</span>
                         </p>
                     </div>
                 </div>
@@ -396,12 +643,18 @@
                 <span class="lang-de">Lade Finance Tracker heute herunter</span>
             </h2>
             <p class="mt-4 text-xl text-emerald-100">
-                <span class="lang-es">Instala la APK generada con Capacitor en tu dispositivo y empieza a registrar tus movimientos.</span>
-                <span class="lang-de">Installiere die mit Capacitor erstellte APK auf deinem Gerät und beginne, deine Finanzen zu verfolgen.</span>
+                <span class="lang-es">Instala la APK generada con Capacitor en tu dispositivo y empieza a registrar tus
+                    movimientos.</span>
+                <span class="lang-de">Installiere die mit Capacitor erstellte APK auf deinem Gerät und beginne, deine
+                    Finanzen zu verfolgen.</span>
             </p>
             <div class="mt-8">
-                <a href="https://github.com/TU_USUARIO/TU_REPOSITORIO/releases/latest/download/app-release.apk" class="inline-flex items-center justify-center px-8 py-4 border border-transparent text-lg font-medium rounded-md text-emerald-600 bg-white hover:bg-gray-50 shadow-lg transition">
-                    <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                <a href="https://github.com/TU_USUARIO/TU_REPOSITORIO/releases/latest/download/app-release.apk"
+                    class="inline-flex items-center justify-center px-8 py-4 border border-transparent text-lg font-medium rounded-md text-emerald-600 bg-white hover:bg-gray-50 shadow-lg transition">
+                    <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                    </svg>
                     <span class="lang-es">Descargar APK (v1.0.0)</span>
                     <span class="lang-de">APK Herunterladen (v1.0.0)</span>
                 </a>
@@ -417,11 +670,13 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="mt-8 border-t border-gray-700 pt-8 flex justify-between items-center">
                 <p class="text-base text-gray-400">
-                    &copy; 2026 Finance Tracker. <span class="lang-es">Todos los derechos reservados.</span><span class="lang-de">Alle Rechte vorbehalten.</span>
+                    &copy; 2026 Finance Tracker. <span class="lang-es">Todos los derechos reservados.</span><span
+                        class="lang-de">Alle Rechte vorbehalten.</span>
                 </p>
                 <div class="flex space-x-6 text-sm">
                     <a href="impressum.html" class="text-gray-400 hover:text-white transition">Impressum</a>
-                    <a href="datenschutz.html" class="text-gray-400 hover:text-white transition">Datenschutzerklärung</a>
+                    <a href="datenschutz.html"
+                        class="text-gray-400 hover:text-white transition">Datenschutzerklärung</a>
                 </div>
             </div>
         </div>
@@ -431,7 +686,7 @@
         function toggleLang() {
             const htmlTag = document.documentElement;
             const toggleInput = document.getElementById('langToggle');
-            
+
             if (toggleInput.checked) {
                 htmlTag.setAttribute('lang', 'de');
                 localStorage.setItem('preferredLang', 'de');
@@ -440,11 +695,11 @@
                 localStorage.setItem('preferredLang', 'es');
             }
         }
-        
+
         document.addEventListener('DOMContentLoaded', () => {
             const savedLang = localStorage.getItem('preferredLang');
             const toggleInput = document.getElementById('langToggle');
-            
+
             if (savedLang) {
                 document.documentElement.setAttribute('lang', savedLang);
                 if (savedLang === 'de') {
@@ -454,4 +709,5 @@
         });
     </script>
 </body>
+
 </html>
